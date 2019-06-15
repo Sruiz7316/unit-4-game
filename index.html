@@ -11,44 +11,106 @@
 
 
 <div id="Container">
-
     <header id="Header">Resident Evil RPG</header>
+    <div id="characters">
+        <div class="character" id="Chris">
+            <h6>Chris</h6>
+            <img src="https://vignette.wikia.nocookie.net/residentevil/images/0/0d/ChrisButton.png/revision/latest?cb=20090429224355">
+            <span>120</span>
+        </div>
 
-    <img id="Background" src="https://stmed.net/sites/default/files/resident-evil-hd-wallpapers-33558-5231651.jpg">
+        <div class="character" id="Jill">
+            <h6>Jill</h6>
+            <img  src="https://vignette.wikia.nocookie.net/residentevil/images/8/87/JillButton.png/revision/latest?cb=20090429224423">
+                <span>80</span>
+        </div>
 
-    <div id="Clearfix">
+        <div class="character" id="Claire">
+                <h6>Claire</h6>
+            <img src="https://vignette.wikia.nocookie.net/residentevil/images/b/b0/ClaireButton.png/revision/latest?cb=20100814000429">
+            <span>60</span>
+        </div>
 
-       <img id="Chris" src="https://vignette.wikia.nocookie.net/residentevil/images/0/0d/ChrisButton.png/revision/latest?cb=20090429224355" height="115" width="100">
+        <div class="character" id="Wesker">
+                <h6>Wesker</h6>
+            <img src="https://vignette.wikia.nocookie.net/residentevil/images/e/ed/AlbertButton.png/revision/latest?cb=20090429224355">
+            <span>70</span>
+        </div>
 
-       <img id="Jill" src="https://vignette.wikia.nocookie.net/residentevil/images/8/87/JillButton.png/revision/latest?cb=20090429224423" height="115" width="100"></div>
+        <div class="character"  id="Leon">
+                <h6>Leon</h6>
+            <img src="https://vignette.wikia.nocookie.net/residentevil/images/b/b8/LeonButton.png/revision/latest?cb=20090429224423">
+            <span>90</span>
+        </div>
+    </div>
+    <div id="your-character-wrap">
+        <h5>Your Character</h5>
+        <div id="your-character"></div>
+    </div>
+    <div id="enemies-wrap">
+        <h5>Enemies Available to Attack</h5>
+        <div id="enemies"></div>
+    </div>
+    <div id="defender-wrap">
+        <h5>Defender</h5>
+        <div id="defender">
 
-       <img id="Claire" src="https://vignette.wikia.nocookie.net/residentevil/images/b/b0/ClaireButton.png/revision/latest?cb=20100814000429" height="115" width="100"></div>
-
-       <img id="Wesker" src="https://vignette.wikia.nocookie.net/residentevil/images/e/ed/AlbertButton.png/revision/latest?cb=20090429224355" height="115" width="100"></div>
-
-       <img id="Leon" src="https://vignette.wikia.nocookie.net/residentevil/images/b/b8/LeonButton.png/revision/latest?cb=20090429224423" height="115" width="100"></div>
-
-       <img id="Sheva" src="https://store.playstation.com/store/api/chihiro/00_09_000/container/US/en/999/UP0102-CUSA01068_00-AV00000000000009/1540515878000/image?w=240&h=240&bg_color=000000&opacity=100&_version=00_09_000" height="115" width="100"></div>
-
-       <img id="Rebecca" src="https://store.playstation.com/store/api/chihiro/00_09_000/container/US/en/999/UP0102-NPUB30650_00-AVAREUCREBECCA00/1520520490000/image?w=240&h=240&bg_color=000000&opacity=100&_version=00_09_000" height="115" width="100"></div>
-
-       <img id="Ada" src="https://store.playstation.com/store/api/chihiro/00_09_000/container/US/en/999/UP0102-BLUS30855_00-AVARE6ADA0000000/1520523020000/image?w=240&h=240&bg_color=000000&opacity=100&_version=00_09_000" height="115" width="100"></div>
-
-       <img id="Barry" src="https://store.playstation.com/store/api/chihiro/00_09_000/container/US/en/999/UP0102-BLUS30270_00-AVARE5BARRY00000/1520457423000/image?w=240&h=240&bg_color=000000&opacity=100&_version=00_09_000" height="115" width="100"></div>
-
-       <img id="Moira" src="https://store.playstation.com/store/api/chihiro/00_09_000/container/US/en/999/UP0102-BLUS31444_00-UARESIDENT000017/1526990223000/image?w=240&h=240&bg_color=000000&opacity=100&_version=00_09_000" height="115" width="100"></div>
-
-       <img id="Nemesis" src="https://store.playstation.com/store/api/chihiro/00_09_000/container/ID/en/999/HP0102-CUSA06605_00-PREMIUMAVATAR030/1555304690000/image?w=240&h=240&bg_color=000000&opacity=100&_version=00_09_000" height="115" width="100"></div>
-
-       <img id="Jake" src="data:image/jpeg;base64,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" height="115" width="100"></div>
-
+        </div>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+    // var availableCharacters = document.getElementsByClassName('character');
+    // for(var i=0; i <availableCharacters.length; i++){
+    //     var currentCharacter = availableCharacters[i];
+    //     currentCharacter.onclick = function(){
+    //         //Move my character
+    //         document.getElementById('your-character').appendChild(this);
+    //         //move the rest of available characters to enemies section
+    //         //...
+    //     }
+    // }
+    var isMyCharacterSelected = false;
+    var isDefenderSelected = false;
+    $(document).ready(function(){
+        $('.character').click(function(){
+            if(isMyCharacterSelected == false){
+                isMyCharacterSelected = true;
+                //move your character
+                $('#your-character').append(this);
+                //move rest of characters to enemies
+                var remainingCharacters = $('#characters').html();
+                $('#enemies').html(remainingCharacters);
+                $('#characters').html('');
+            }
+        });
+        //$('#enemies .character').click(function(){
+        $('#enemies').on("click",".character", function(){
+            if(isDefenderSelected == false){
+                isDefenderSelected = true;
+                //move defender
+                $('#defender').append(this);
+            }
+        })
+    });
+</script>
 
-<script type="text/javascript"></script>
 
+<!-- select a charater and three of the other characters (at random) become your enemy  -->
 
+<!-- Once clinked the page changes format and your character moves to the top of the screen while the enemies appear to the middle-->
 
+<!-- Youll move the enemy to the bottom of the page -->
+
+<!-- Click the attack button and a description under the image appears saying how much damage was dealt FOR BOTH SIDES. This causes the original number (health) under the image to change/ -->
+
+<!-- Continue attacking until one of you reach zero. -->
+
+<!-- If you reach zero, the you lose and you have to click the restart button to start again. If you win then the image of the enemy disappears and a paragraph appears saying you won and need to choose another enemy.  -->
+
+<!-- Move another enemy to the bottom of the screen and do the process all over again. -->
+
+<!-- <Once you defeate all you enemies text will apear to tell you that the game is over. -->
 
 
 

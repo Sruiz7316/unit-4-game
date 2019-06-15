@@ -1,17 +1,18 @@
-#container {
-   position: relative;
-   width: 1350px;
-    height: 680px;
+body{
+    margin: 0;
+}
+#Container {
+   background-image: url('https://stmed.net/sites/default/files/resident-evil-hd-wallpapers-33558-5231651.jpg');
+   background-position:center;
+   background-size: cover;
 }
 
 #Header {
-   position: absolute;
    color: red;
-   margin-top: 30px;
+   padding-top: 30px;
    font-size: 36px;
    font-weight: bold;
    text-align: center;
-   left: 40%;
 }
 
 #Background {
@@ -28,4 +29,24 @@
 .img {
     float: left;
     padding: 10px;
+    top: 30px;
+}
+h5{
+    color: white;
+}
+.character{
+    width: 105px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 3px solid green;
+    display: inline-block;
+    background-color: white;
+    color: black;
+    text-align: center;
+}
+.character img{
+    width: 100%;
+}
+#enemies .character{
+    background-color: red;
 }

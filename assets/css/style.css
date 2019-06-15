@@ -1,0 +1,30 @@
+#Container {
+   height: 680px;
+}
+
+#Header {
+   position: absolute;
+   color: red;
+   margin-top: 30px;
+   font-size: 36px;
+   font-weight: bold;
+   text-align: center;
+   left: 40%;
+}
+
+#Background {
+    width: 1350px;
+    height: 680px;
+}
+
+#Clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.img {
+    float: left;
+    padding: 10px;
+    top: 30px;
+}
