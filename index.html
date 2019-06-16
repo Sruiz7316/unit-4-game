@@ -13,31 +13,31 @@
 <div id="Container">
     <header id="Header">Resident Evil RPG</header>
     <div id="characters">
-        <div class="character" id="Chris">
+        <div class="character" id="Chris" data-damage="8">
             <h6>Chris</h6>
             <img src="https://vignette.wikia.nocookie.net/residentevil/images/0/0d/ChrisButton.png/revision/latest?cb=20090429224355">
             <span>120</span>
         </div>
 
-        <div class="character" id="Jill">
+        <div class="character" id="Jill" data-damage="12">
             <h6>Jill</h6>
             <img  src="https://vignette.wikia.nocookie.net/residentevil/images/8/87/JillButton.png/revision/latest?cb=20090429224423">
                 <span>80</span>
         </div>
 
-        <div class="character" id="Claire">
+        <div class="character" id="Claire" data-damage="5">
                 <h6>Claire</h6>
             <img src="https://vignette.wikia.nocookie.net/residentevil/images/b/b0/ClaireButton.png/revision/latest?cb=20100814000429">
             <span>60</span>
         </div>
 
-        <div class="character" id="Wesker">
+        <div class="character" id="Wesker" data-damage="25">
                 <h6>Wesker</h6>
             <img src="https://vignette.wikia.nocookie.net/residentevil/images/e/ed/AlbertButton.png/revision/latest?cb=20090429224355">
             <span>70</span>
         </div>
 
-        <div class="character"  id="Leon">
+        <div class="character"  id="Leon" data-damage="15">
                 <h6>Leon</h6>
             <img src="https://vignette.wikia.nocookie.net/residentevil/images/b/b8/LeonButton.png/revision/latest?cb=20090429224423">
             <span>90</span>
@@ -51,12 +51,20 @@
         <h5>Enemies Available to Attack</h5>
         <div id="enemies"></div>
     </div>
+    <div id="fight-section">
+        <h5>Fight Section</h5>
+        <button id="attack-button">Attack</button>
+    </div>
     <div id="defender-wrap">
         <h5>Defender</h5>
         <div id="defender">
 
         </div>
     </div>
+    <div id="message-wrap">
+
+    </div>
+    <button id="restart">Restart</button>
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
@@ -72,6 +80,7 @@
     // }
     var isMyCharacterSelected = false;
     var isDefenderSelected = false;
+    var yourCharacterDamage = 0; 
     $(document).ready(function(){
         $('.character').click(function(){
             if(isMyCharacterSelected == false){
@@ -91,8 +100,62 @@
                 //move defender
                 $('#defender').append(this);
             }
-        })
+        });
+        //Attack button
+        $('#attack-button').click(function(){
+            if($("#defender").html() == ""){
+                var message = "no enemy here.";
+            }else{
+                var yourCharacterInitialDamage = $('#your-character .character').data('damage');//8
+                if(yourCharacterDamage == 0){ // It is the first attack
+                    yourCharacterDamage = parseInt(yourCharacterInitialDamage);
+                }else{
+                    yourCharacterDamage =  yourCharacterDamage +  parseInt(yourCharacterInitialDamage);
+                }
+                var yourCharacterLife = $('#your-character .character span').text();
+                var defenderName = $('#defender .character h6').text();
+                var defenderDamage = $('#defender .character').data('damage');
+                var defenderLife = $('#defender .character span').text();
+
+                //Calculate your character life
+                var yourCharacterNewLife = parseInt(yourCharacterLife) - parseInt(defenderDamage);
+
+                
+                //Calculate defender life
+                var defenderNewLife = parseInt(defenderLife) - parseInt(yourCharacterDamage);
+                
+                if(parseInt(yourCharacterNewLife) <= 0){
+                    var message = "You been defeated. GAME OVER!!!";
+                }else if(parseInt(defenderNewLife) <= 0){
+                    $('#defender').html("");
+                    if($("#enemies").html()==""){
+                        var message =" You Won! GAME OVER !!!";
+                    }else{
+                        var message = "you have defeated " + defenderName+".  you can choose to fight another enemy";
+                        isDefenderSelected = false; // By setting isDefenderSelected to false you allow the user to select a new defender (look at line approx 97)
+                    }
+                }else{
+                    //Update your character life
+                    $('#your-character .character span').text(yourCharacterNewLife);
+                    //Update defender life
+                    $('#defender .character span').text(defenderNewLife);
+                    
+                    var message = "You attacked "+defenderName+" for "+yourCharacterDamage+" damage. <br> "+defenderName+" attacked you back for "+defenderDamage+" damage.";
+                }
+            }
+
+            $("#message-wrap").html(message);
+        });
+
+        //Restart button
+        $("#restart").hide();
+        $("#restart").click(function(){
+            location.reload();
+        });
     });
+
+
+
 </script>
 
 

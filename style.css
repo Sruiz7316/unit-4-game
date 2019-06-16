@@ -50,3 +50,6 @@ h5{
 #enemies .character{
     background-color: red;
 }
+#message-wrap{
+    color: white;
+}
